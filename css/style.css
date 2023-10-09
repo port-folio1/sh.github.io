@@ -1,11 +1,9 @@
-/* コード文字化け防止 */
 @charset "UTF-8";
 
 /* 共通部分・文字サイズを反映 */
 html{
 font-size:100%;
 }
-/* bodyの書体など */
 body{
     font-family:"ヒラギノ角ゴ pro W3",sans-serif;
     line-height:1.7;
@@ -19,7 +17,52 @@ a{
 img{
     max-width:100%;
 }
-/*  ヘッダーロゴ画像の大きさ */
+/* ナビゲーションメニューとロゴを近づける */
+.wrapper{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 4%;
+
+/* 大きな背景画像 */
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+}
+/* 見出し（page-title）*/
+.page-title{
+    font-size:6rem;
+    font-family: 'Dancing Script', cursive;
+    text-transform:uppercase;
+    font-weight:normal;
+}
+.sub-title{
+    font-size:1.375rem;
+    padding:0 8px 8px;
+    border-bottom:2px #0bd solid;
+    font-weight: normal;
+}
+/*  「メニューを見る」ボタン */
+.button{
+    font-size:1.375rem;
+    background:#0bd;
+    color:#fff;
+    border-radius:10%/50%;
+    padding:18px 32px;
+}
+.button:hover{
+    background:#0090aa;
+}
+/* iframe */
+iframe{width:100%}
+}
+
+/* ---------------HEADER----------------- */
+.page-header{
+    display:flex;
+    justify-content:space-between;
+}
+
+/*  ヘッダーロゴ画像サイズ */
 .logo{
     width:210px;
     margin-top:40px;
@@ -42,34 +85,22 @@ img{
     color:#0bd;
 }
 
-/* ナビゲーションメニューを横並びにする */
-.page-header{
-    display:flex;
-    justify-content:space-between;
-}
-/* ナビゲーションメニューとロゴを近づける */
-.wrapper{
-    max-width:1100px;
-    margin:0 auto;
-    padding:0 4%;
-}
 /* ------------------HOME-------------------- */
-/* 大きな背景画像 */
-.big-bg{
-    background-size: cover;
-    background-position: center top;
-}
+
 #home{
     background-image: url(../images/mainpage.jpg);
     background-blend-mode: soft-light;
     min-height: 100vh;
 }
+.big-bg {
+    background-size: cover;
+    background-position: center top;
+}
 #home.page-title{
     text-transform: none;
 }
 
-
-/* コンテンツ部分を中央に配置 */
+/* コンテンツ部分 */
 .home-content{
     text-align:center;
     margin-top:10%;
@@ -78,25 +109,9 @@ img{
     font-size:1.125rem;
     margin:10px 0 42px;
 }
-/* 見出し（page-title）*/
-.page-title{
-    font-size:6rem;
-    font-family: 'Dancing Script', cursive;
-    text-transform:uppercase;
-    font-weight:normal;
-}
-/*  「メニューを見る」ボタン */
-.button{
-    font-size:1.375rem;
-    background:#0bd;
-    color:#fff;
-    border-radius:10%/50%;
-    padding:18px 32px;
-}
-.button:hover{
-    background:#0090aa;
-}
-/* 見出し「NEWS」の背景など */
+
+
+/*------------NEWS------------*/
 #news{
     background-image:url(../images/news.jpg);
     height:270px;
@@ -105,32 +120,16 @@ img{
 #news .page-title{
     text-align:center;
 }
-/* フッター */
-footer {
-    background:#432;
-    text-align: center;
-    padding: 26px 0;
+.news-contents {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    margin-top:80px;
 }
-
-footer p {
-    color: #fff;
-    font-size: 0.875rem;
-}
-
-/* メインエリアとサイドバーの横並び */
+/* 記事部分 */
 article{
     width:74%;
 }
-aside{
-    width:22%;
-}
-.news-contents{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:50px;
-    margin-top:80px;
-}
-/* メインエリア */
 .post-info{
     position:relative;
     padding-top:4px;
@@ -164,28 +163,17 @@ aside{
 .post-title,
 .post-cat{
     margin-left:120px;
-   
-}
-/* NEWSのメインエリアの本文 */
-article img{
+ }
+ article img{
     margin-bottom:20px;
 }
 article p{
     margin-bottom:1rem;
 }
-
-/* サイドバーの見出しに下線*/
-.sub-title{
-    font-size:1.375rem;
-    padding:0 8px 8px;
-    border-bottom:2px #0bd solid;
-    font-weight: normal;
+/* サイドバー */
+aside{
+    width:22%;
 }
-/* サイドバーの文章に余白追加 */
-aside p{
-    padding:12px 10px;
-}
-/*サイドメニュー「カテゴリーリスト」の装飾 */
 .sub-menu{
     margin-bottom:60px;
     list-style:none;
@@ -201,85 +189,12 @@ aside p{
 .sub-menu a:hover{
     color:#0bd;
 }
-/* レスポンシブ対応 */
-@media(max-width:600px){
-    .page-title{
-        font-size:2.5rem
-    }
-    .page-header{
-        flex-direction:column;
-        align-items:center;
-    }
-    /* ヘッダー */
-    .main-nav{
-        font-size:1rem;
-        margin-top:10px;
-    }
-    .main-nav li{
-        margin:0 20px;
-    }
-    /* ホーム */
-    .home-content{
-        margin-top:20px;
-    }
-    /* NEWS */
-    .news-contents{
-        flex-direction:column;
-    }
-    article,
-    aside{
-        width:100%;
-    }
-    #news .page-title{
-        margin-top:30px;
-    }
-    aside{
-        margin-top:60px;
-    }
-    .post-info{
-        margin-bottom:30px;
-    }
-    .post-date{
-        width:70px;
-        height:70px;
-        font-size:1rem;
-    }
-    .post-date span{
-        font-size:0.875rem;
-        padding-top:2px;
-    }
-    .post-title{
-        font-size:1.375rem;
-    }
-    .post-cat{
-        font-size:0.875rem;
-        margin-top:10px;
-    }
-    .post-title,
-    .post-cat{
-        margin-left:80px
-    }
-    /* MENU */
-    .menu-content{
-        margin-top:20%;
-    }
- 
-    /* 店舗情報・地図 / SNS */
-    #location .wrapper,
-    #sns .wrapper {
-        flex-direction: column;
-    }
-    .location-info,
-    .location-map,
-    .sns-box {
-        width: 100%;
-    }
-    .sns-box {
-        margin-bottom: 30px;
-    }
-}   
-/* MENU------- */
-#menu{
+aside p{
+    padding:12px 10px;
+}
+
+ /* ---------MENU------- */
+ #menu{
     background-image:url(../images/menu.jpg);
     min-height:100vh;
 }
@@ -301,7 +216,7 @@ aside p{
     margin-top: 6%;
     margin-bottom: 50px;
   }
-  /*--CONTACT--*/
+/*---------CONTACT--------*/
 #contact{
     background-image:url(../images/contact.jpg);
     min-height:100vh;
@@ -339,18 +254,6 @@ input[type="submit"] {
     cursor: pointer;
     line-height: 1;
 }
-/* CONTACT */
-#contact .page-title {
-    margin-top: 40px;
-}
-
-/* フォーム */
-input[type="text"],
-input[type="email"],
-textarea {
-    max-width: 50%;
-}
-
 .button {
     display       : inline-block;
     border-radius : 5%;          /* 角丸       */
@@ -370,9 +273,8 @@ textarea {
     color         : #1ca1df;     /* 背景色     */
     background    : rgba(255, 255, 255, 0.90);     /* 文字色     */
   }
-
   /* 店舗情報・地図 */
-#location {
+  #location {
     padding: 4% 0;
 }
 #location .wrapper {
@@ -388,7 +290,6 @@ textarea {
 .location-map {
     width: 74%;
 }
-
 /* SNS */
 #sns {
     background: #FAF7F0;
@@ -404,3 +305,93 @@ textarea {
 .sns-box {
     width: 30%;
 }
+/* フッター */
+footer {
+    background:#432;
+    text-align: center;
+    padding: 26px 0;
+}
+
+footer p {
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+/* モバイル版 */
+@media(max-width:600px){
+    .page-title{
+        font-size:2.5rem
+    }
+    .page-header{
+        flex-direction:column;
+        align-items:center;
+    }
+    /* HEADER */
+    .main-nav{
+        font-size:1rem;
+        margin-top:10px;
+    }
+    .main-nav li{
+        margin:0 20px;
+    }
+     /* HOME */
+     .home-content{
+        margin-top:20px;
+    }
+    /* NEWS */
+    .news-contents{
+        flex-direction:column;
+    }
+    article,
+    aside{
+        width:100%;
+    }
+    .post-info {
+        margin-bottom: 30px;
+    }
+    .post-date{
+        width:70px;
+        height:70px;
+        font-size:1rem;
+    }
+    .post-date span{
+        font-size:0.875rem;
+        padding-top:2px;
+    }
+    .post-title{
+        font-size:1.375rem;
+    }
+    .post-cat{
+        font-size:0.875rem;
+        margin-top:10px;
+    }
+    .post-title,
+    .post-cat{
+        margin-left:80px
+    }
+    /* MENU */
+    .menu-content{
+        margin-top:20%;
+    }
+
+    /* CONTACT */
+    #contact .page-title {
+        margin-top: 40px;
+        }
+
+     /* フォーム */
+    input[type="text"],
+    input[type="email"],
+    textarea {
+    max-width: 50%;
+        }
+    /* 店舗・地図 / SNS */
+    #location .wrapper,
+    #sns .wrapper{
+    flex-direction:column;
+    }
+    .location-info,
+    .location-map,
+    .sns-box{width:100%}
+    .sns-box{margin-bottom:30px;}
+    }
